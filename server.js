@@ -4,14 +4,15 @@ const connection = require('./connector');
 const app = express();
 const PORT = 8080;
 app.get('/', (req, res) => {
-
+  const protocol = req.protocol; // Gets the protocol (http or https)
+  const host = req.get('host');
   res.send(`
     <html>
       <head><title>Order API</title></head>
       <body>
         <h1>Welcome to the Order API</h1>
-        <a href="https://localhost:${PORT}/api/orders">View Orders</a>
-        <a href="https://localhost:${PORT}/api/orders?limit=4&offset=1">View pagination</a>
+        <a href="${protocol}://${host}/api/orders">View Orders</a>
+        <a href="${protocol}://${host}/api/orders?limit=4&offset=1">View pagination</a>
       </body>
     </html>
   `);
