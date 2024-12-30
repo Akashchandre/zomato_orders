@@ -13,7 +13,8 @@ app.get('/api/orders', (req, res) => {
 
   if (isNaN(limit) || limit <= 0) limit = 10;
   if (isNaN(offset) || offset < 0) offset = 0;
-
+   
+  // mysql query to select data from order table
   const query = `SELECT * FROM orders LIMIT ? OFFSET ?`;
 
   connection.query(query, [limit, offset], (err, results) => {
