@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
   user: process.env.DB_USER || 'admin',
   password: process.env.DB_PASSWORD || 'Chandre08',
   database: process.env.DB_NAME || 'zomato_orders',
-  connectTimeout: 20000,
+  connectTimeout: 30000,
 });
 
 connection.connect((err) => {
