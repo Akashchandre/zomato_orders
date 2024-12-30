@@ -3,7 +3,18 @@ const connection = require('./connector');
 
 const app = express();
 const PORT = 8080;
-
+app.get('/', (req, res) => {
+  res.send(`
+    <html>
+      <head><title>Order API</title></head>
+      <body>
+        <h1>Welcome to the Order API</h1>
+        <a href="http://localhost:${PORT}/api/orders">View Orders</a>
+        <a href="http://localhost:${PORT}/api/orders?limit=4&offset=1">View pagination</a>
+      </body>
+    </html>
+  `);
+});
 app.get('/api/orders', (req, res) => {
   let { limit, offset } = req.query;
 
