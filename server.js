@@ -4,6 +4,7 @@ const connection = require('./connector');
 const app = express();
 const PORT = 8080;
 app.get('/', (req, res) => {
+  const host = req.get('host');
   res.send(`
     <html>
       <head><title>Order API</title></head>
