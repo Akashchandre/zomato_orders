@@ -9,8 +9,8 @@ app.get('/', (req, res) => {
       <head><title>Order API</title></head>
       <body>
         <h1>Welcome to the Order API</h1>
-        <a href="http://localhost:${PORT}/api/orders">View Orders</a>
-        <a href="http://localhost:${PORT}/api/orders?limit=4&offset=1">View pagination</a>
+        <a href="http://${host}:${PORT}/api/orders">View Orders</a>
+        <a href="http://${host}:${PORT}/api/orders?limit=4&offset=1">View pagination</a>
       </body>
     </html>
   `);
