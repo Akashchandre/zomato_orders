@@ -2,9 +2,10 @@
   "name": "zomato_orders",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,11 @@
     "mysql2": "^3.12.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "chai-http": "^5.1.1",
+    "mocha": "^11.0.1",
+    "supertest": "^7.0.0"
   }
 }

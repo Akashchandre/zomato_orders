@@ -1,4 +1,4 @@
-const connection = require('./connector');
+import connection from './connector';
 
 const createOrdersTable = `
 CREATE TABLE IF NOT EXISTS orders (

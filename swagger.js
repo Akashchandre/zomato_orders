@@ -1,5 +1,5 @@
-const swaggerJsdoc = require('swagger-jsdoc');
-require('dotenv').config()
+import swaggerJsdoc from 'swagger-jsdoc';
+
 // Swagger setup
 const swaggerOptions = {
   swaggerDefinition: {
@@ -15,5 +15,4 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
-
-module.exports = swaggerDocs;
+export default swaggerDocs;

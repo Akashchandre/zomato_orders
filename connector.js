@@ -1,5 +1,8 @@
-const mysql = require('mysql2');
-require('dotenv').config();
+import mysql from 'mysql2';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const connection = mysql.createConnection({
   host: process.env.DB_HOST || 'zomato-orders.cjmsgyqw88a2.eu-north-1.rds.amazonaws.com',
   user: process.env.DB_USER || 'admin',
@@ -16,4 +19,4 @@ connection.connect((err) => {
   console.log('Connected to AWS RDS MySQL database!');
 });
 
-module.exports = connection;
+export default connection;

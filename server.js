@@ -1,7 +1,10 @@
-const express = require('express');
-const connection = require('./connector');
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocs = require('./swagger');
+import express from 'express';
+import dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocs from './swagger.js';
+import connection from './connector.js';
+
+dotenv.config();
 const app = express();
 const PORT = 8080;
 
@@ -97,3 +100,6 @@ app.get('/api/orders', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
 });
+
+export default app;
+
