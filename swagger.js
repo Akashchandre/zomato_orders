@@ -8,10 +8,10 @@ const swaggerOptions = {
       description: 'API documentation for managing orders',
       version: '1.0.0',
     },
-    host: 'localhost:8080', // Update this with the actual host for deployment
+    host: 'localhost:8080', 
     basePath: '/',
   },
-  apis: ['./server.js'], // Specify the file containing Swagger JSDoc comments
+  apis: ['./server.js'], 
 };
 
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
