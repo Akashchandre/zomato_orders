@@ -1,8 +1,12 @@
 const express = require('express');
 const connection = require('./connector');
-
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocs = require('./swagger');
 const app = express();
 const PORT = 8080;
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
 app.get('/', (req, res) => {
   const protocol = req.protocol; // Gets the protocol (http or https)
   const host = req.get('host');
@@ -12,11 +16,60 @@ app.get('/', (req, res) => {
       <body>
         <h1>Welcome to the Order API</h1>
         <a href="${protocol}://${host}/api/orders">View Orders</a>
+        <br>
         <a href="${protocol}://${host}/api/orders?limit=4&offset=1">View pagination</a>
       </body>
     </html>
   `);
 });
+
+// Orders API route
+/**
+ * @swagger
+ * /api/orders:
+ *   get:
+ *     description: Fetch a list of orders from the database
+ *     parameters:
+ *       - name: limit
+ *         in: query
+ *         description: Number of orders to retrieve
+ *         required: false
+ *         type: integer
+ *         default: 10
+ *       - name: offset
+ *         in: query
+ *         description: Number of orders to skip
+ *         required: false
+ *         type: integer
+ *         default: 0
+ *     responses:
+ *       200:
+ *         description: A list of orders
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: integer
+ *                   customer_name:
+ *                     type: string
+ *                   item:
+ *                     type: string
+ *                   price:
+ *                     type: number
+ *                     format: float
+ *                   created_at:
+ *                     type: string
+ *                     format: date-time
+ *       500:
+ *         description: Internal server error
+ */
+
+
+
 app.get('/api/orders', (req, res) => {
   let { limit, offset } = req.query;
 

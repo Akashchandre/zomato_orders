@@ -1,5 +1,5 @@
 const mysql = require('mysql2');
-
+require('dotenv').config();
 const connection = mysql.createConnection({
   host: process.env.DB_HOST || 'zomato-orders.cjmsgyqw88a2.eu-north-1.rds.amazonaws.com',
   user: process.env.DB_USER || 'admin',
