@@ -16,8 +16,10 @@ app.get('/', (req, res) => {
       <body>
         <h1>Welcome to the Order API</h1>
         <a href="${protocol}://${host}/api/orders">View Orders</a>
-        <br>
+        <br><br>
         <a href="${protocol}://${host}/api/orders?limit=4&offset=1">View pagination</a>
+        <br><br>
+        <a href="${protocol}://${host}/api-docs">Api Documentation</a>
       </body>
     </html>
   `);
