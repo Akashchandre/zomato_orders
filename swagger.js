@@ -1,7 +1,11 @@
 import swaggerJsdoc from 'swagger-jsdoc';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // Swagger setup
 const swaggerOptions = {
+  
   swaggerDefinition: {
     info: {
       title: 'Zomato Orders API',

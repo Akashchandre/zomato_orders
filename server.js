@@ -3,20 +3,22 @@ import dotenv from 'dotenv';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocs from './swagger.js';
 import connection from './connector.js';
-
+import cors from 'cors';
 dotenv.config();
 const app = express();
 const PORT = 8080;
-
+app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.get('/', (req, res) => {
   const protocol = req.protocol; // Gets the protocol (http or https)
   const host = req.get('host');
+
   res.send(`
     <html>
       <head><title>Order API</title></head>
       <body>
+        
         <h1>Welcome to the Order API</h1>
         <a href="${protocol}://${host}/api/orders">View Orders</a>
         <br><br>
@@ -25,6 +27,7 @@ app.get('/', (req, res) => {
         <a href="${protocol}://${host}/api-docs">Api Documentation</a>
       </body>
     </html>
+      
   `);
 });
 
